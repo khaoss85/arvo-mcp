@@ -24,11 +24,70 @@ const SERVER_VERSION = '1.0.0'
 
 let apiClient: ArvoApiClient | null = null
 
+function getClientWithKey(apiKey?: string): ArvoApiClient {
+  return createClient(apiKey)
+}
+
 function getClient(): ArvoApiClient {
   if (!apiClient) {
     apiClient = createClient()
   }
   return apiClient
+}
+
+/**
+ * Create an Arvo MCP server instance (for Smithery and programmatic use)
+ */
+export function createServer(config?: { apiKey?: string }) {
+  const client = config?.apiKey ? getClientWithKey(config.apiKey) : getClient()
+
+  const server = new Server(
+    {
+      name: SERVER_NAME,
+      version: SERVER_VERSION,
+    },
+    {
+      capabilities: {
+        tools: {},
+      },
+    }
+  )
+
+  // Handle list_tools request
+  server.setRequestHandler(ListToolsRequestSchema, async () => {
+    return { tools: TOOLS }
+  })
+
+  // Handle call_tool request
+  server.setRequestHandler(CallToolRequestSchema, async (request) => {
+    const { name, arguments: args } = request.params
+
+    const tool = getToolByName(name)
+    if (!tool) {
+      return {
+        content: [{ type: 'text', text: JSON.stringify({ error: `Unknown tool: ${name}` }) }],
+        isError: true,
+      }
+    }
+
+    try {
+      const result = await client.executeTool(name, (args as Record<string, unknown>) || {})
+      const resultText = typeof result === 'string' ? result : JSON.stringify(result, null, 2)
+      return { content: [{ type: 'text', text: resultText }] }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      return { content: [{ type: 'text', text: JSON.stringify({ error: errorMessage }) }], isError: true }
+    }
+  })
+
+  return server
+}
+
+/**
+ * Create a sandbox server for Smithery scanning (with mock config)
+ */
+export function createSandboxServer() {
+  return createServer({ apiKey: 'sandbox-test-key' })
 }
 
 export async function runServer() {

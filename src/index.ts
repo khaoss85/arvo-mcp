@@ -23,6 +23,6 @@
  * @see https://github.com/arvo-health/arvo-mcp
  */
 
-export { runServer } from './server.js'
+export { runServer, createServer, createSandboxServer } from './server.js'
 export { TOOLS, getToolByName, isReadOnlyTool } from './tools/index.js'
 export { ArvoApiClient, createClient } from './api/client.js'
