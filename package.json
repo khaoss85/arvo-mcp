@@ -12,17 +12,26 @@
     "cursor",
     "typescript",
     "personal-trainer",
-    "workout-tracker"
+    "workout-tracker",
+    "ai-assistant",
+    "llm-integration",
+    "fitness-tracking",
+    "workout-planning",
+    "exercise-api",
+    "training-data",
+    "claude-integration",
+    "health-data",
+    "ai-tools"
   ],
   "author": "Arvo Health <hello@arvo.guru>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arvo-health/arvo-mcp.git"
+    "url": "git+https://github.com/khaoss85/arvo-mcp.git"
   },
   "homepage": "https://arvo.guru",
   "bugs": {
-    "url": "https://github.com/arvo-health/arvo-mcp/issues"
+    "url": "https://github.com/khaoss85/arvo-mcp/issues"
   },
   "type": "module",
   "main": "./dist/index.js",
@@ -35,7 +44,7 @@
     }
   },
   "bin": {
-    "arvo-mcp": "./bin/arvo-mcp.js"
+    "arvo-mcp": "bin/arvo-mcp.js"
   },
   "files": [
     "dist",

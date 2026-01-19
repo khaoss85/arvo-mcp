@@ -44,13 +44,13 @@ export class ArvoApiClient {
     })
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
+      const errorData = await response.json().catch(() => ({})) as { error?: string }
       throw new Error(
         errorData.error || `API request failed with status ${response.status}`
       )
     }
 
-    const data: ToolExecutionResult = await response.json()
+    const data = await response.json() as ToolExecutionResult
     return data.result
   }
 
@@ -78,7 +78,16 @@ export class ArvoApiClient {
       throw new Error(`Failed to fetch tools list: ${response.status}`)
     }
 
-    const data = await response.json()
+    const data = await response.json() as { tools?: Array<{
+      name: string
+      description: string
+      inputSchema: {
+        type: 'object'
+        properties: Record<string, unknown>
+        required: string[]
+      }
+      readOnly: boolean
+    }> }
     return data.tools || []
   }
 
@@ -99,7 +108,12 @@ export class ArvoApiClient {
       },
     })
 
-    return response.json()
+    return response.json() as Promise<{
+      valid: boolean
+      userId?: string
+      scopes?: string[]
+      error?: string
+    }>
   }
 }
 
