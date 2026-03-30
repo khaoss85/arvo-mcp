@@ -21,6 +21,10 @@ Perfect for fitness enthusiasts who want to:
 - **Secure API key authentication** - Your data stays private
 - **Works with any MCP client** - Claude Desktop, Cursor, Windsurf, and more
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/khaoss85-arvo-mcp).
+
 ## Quick Start
 
 ### 1. Get your API key
