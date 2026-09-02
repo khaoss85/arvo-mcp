@@ -27,11 +27,13 @@ Perfect for fitness enthusiasts who want to:
 
 1. Sign up or log in at [arvo.guru](https://arvo.guru) — the **web** app; keys
    cannot be created from the mobile app
-2. Open [Settings](https://arvo.guru/settings#api-keys) and find the **API Keys**
-   section. If Settings only shows Profile, Theme and Arvo tone, your account is
-   in **Simple mode**: switch to Advanced with the app mode toggle on that same
-   page and the section appears. (In Simple mode the link above quietly lands you
-   on the dashboard instead.)
+2. Open **Settings** and find the **API Keys** section. If you do not see it, your
+   account is in **Simple mode**: the app mode toggle is on that same Settings
+   page — switch to Advanced and the section appears. Open Settings from inside
+   the app rather than following a direct link: in Simple mode
+   `arvo.guru/settings` quietly redirects to the dashboard. Once you are in
+   Advanced mode the deep link [arvo.guru/settings#api-keys](https://arvo.guru/settings#api-keys)
+   goes straight there.
 3. Click **Create Key** and copy your API key
 
 Key generation is not restricted to paid plans.
