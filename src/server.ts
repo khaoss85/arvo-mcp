@@ -98,7 +98,7 @@ export async function runServer() {
     const validation = await client.validateKey()
     if (!validation.valid) {
       console.error(`[${SERVER_NAME}] Invalid API key: ${validation.error}`)
-      console.error(`[${SERVER_NAME}] Get your API key from https://arvo.guru/settings#api-keys (web app, Advanced mode)`)
+      console.error(`[${SERVER_NAME}] Get your API key from https://arvo.guru/settings#api-keys (web app, Advanced mode only)`)
       process.exit(1)
     }
     console.error(`[${SERVER_NAME}] API key validated successfully`)

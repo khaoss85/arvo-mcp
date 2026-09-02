@@ -123,7 +123,7 @@ export function createClient(apiKey?: string, baseUrl?: string): ArvoApiClient {
   if (!key) {
     throw new Error(
       'ARVO_API_KEY environment variable is required. ' +
-        'Get your API key from https://arvo.guru/settings#api-keys (web app, Advanced mode)'
+        'Get your API key from https://arvo.guru/settings#api-keys (web app, Advanced mode only)'
     )
   }
 
