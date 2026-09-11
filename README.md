@@ -26,8 +26,10 @@ Perfect for fitness enthusiasts who want to:
 ### 1. Get your API key
 
 1. Sign up or log in at [arvo.guru](https://arvo.guru)
-2. Go to **Settings** → **API Keys**
+2. In the **web app**, open **Settings** → **API Keys** (if you see the simplified settings, switch to **Advanced** mode first — or open https://arvo.guru/settings#api-keys directly)
 3. Click **Create Key** and copy your API key
+
+> API-key management is currently web-only and not available in the mobile app.
 
 ### 2. Configure your MCP client
 
